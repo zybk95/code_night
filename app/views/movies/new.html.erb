@@ -1,0 +1,8 @@
+
+<%= form_for @movie, url: {action: 'create'} do |f| %>
+    Film Adı: <br>
+    <%= f.text_field :name %> <br>
+    Acıklama:<br>
+    <%= f.text_area :description %> <br>
+    <%= f.submit 'submit' %>
+<% end %>
