@@ -20,6 +20,6 @@ class MoviesController < ApplicationController
 
   private #private nin altına girilen herşey privatedir...
   def movie_params
-    params.require(:movie).permit(:name, :description)
+    params.require(:movie).permit(:name, :description, :avatar)
   end
 end
