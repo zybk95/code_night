@@ -1,4 +1,8 @@
 
+<%if @movie.errors.any? %>
+  Hata: <%= @movie.errors.full_messages.to_sentence %>
+<% end %>
+
 <%= form_for @movie, url: {action: 'create'} do |f| %>
     Poster <br>
     <%= f.file_field :avatar %> <br>

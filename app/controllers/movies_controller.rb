@@ -10,8 +10,13 @@ class MoviesController < ApplicationController
   def create
     @movie=Movie.new(movie_params)
     @movie.published_date=DateTime.now
-    @movie.save
-    redirect_to root_path
+
+    if  @movie.save
+      redirect_to root_path
+    else
+      render :new
+    end
+
   end
 
   def show
