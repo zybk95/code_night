@@ -1,5 +1,7 @@
 
 <%= form_for @movie, url: {action: 'create'} do |f| %>
+    Poster <br>
+    <%= f.file_field :avatar %> <br>
     Film Adı: <br>
     <%= f.text_field :name %> <br>
     Acıklama:<br>
