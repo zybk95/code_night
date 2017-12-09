@@ -1,0 +1,14 @@
+
+<%if @movie.errors.any? %>
+    Hata: <%= @movie.errors.full_messages.to_sentence %>
+<% end %>
+
+<%= form_for @movie, url: {action: 'update'} do |f| %>
+    Poster <br>
+    <%= f.file_field :avatar %> <br>
+    Film Adı: <br>
+    <%= f.text_field :name %> <br>
+    Acıklama:<br>
+    <%= f.text_area :description %> <br>
+    <%= f.submit 'submit' %>
+<% end %>
