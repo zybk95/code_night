@@ -1,5 +1,6 @@
 class MoviesController < ApplicationController
 
+  before_action :set_movie, only: [:show, :update, :edit, :destroy]
 
 
   def index
@@ -9,17 +10,14 @@ class MoviesController < ApplicationController
 
 
   def destroy
-    @movie = Movie.find(params[:id])
     @movie.destroy
     redirect_to root_path
   end
 
 
-
   def new
     @movie = Movie.new
   end
-
 
 
 
@@ -36,18 +34,11 @@ class MoviesController < ApplicationController
   end
 
 
-
-
   def edit
-    @movie=Movie.find(params[:id])
   end
 
 
-
-
-
   def update
-    @movie=Movie.find(params[:id])
     if @movie.update(movie_params)
       redirect_to root_path
     else
@@ -56,17 +47,18 @@ class MoviesController < ApplicationController
   end
 
 
-
-
-
   def show
-    @movie=Movie.find(params[:id])
   end
 
 
 
 
   private #private nin altına girilen herşey privatedir...
+
+  def set_movie
+    @movie=Movie.find(params[:id])
+  end
+
   def movie_params
     params.require(:movie).permit(:name, :description, :avatar)
   end
